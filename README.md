@@ -15,6 +15,13 @@ I went from various sites such as: [Dlink forums](http://forums.dlink.com/index.
 
 I went to DLINK's site, downloaded the firmware upgrade image and ran binwalk over it.  Sure enough, I exposed some additional endpoints that I could reach but it wasn't until I ran strings on the alphapd binary that exposed even more.
 
+Found endpoints (that are used now)
+-----------------------------------
+* POST url+/pantiltcontrol.cgi
+* GET  url+/image.jpg
+* GET  url+/config/ptz_pos.cgi
+* POST url+/nightmodecontrol.cgi
+
 Methods
 -------
 * connect
