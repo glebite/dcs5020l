@@ -17,13 +17,13 @@ I went to DLINK's site, downloaded the firmware upgrade image and ran binwalk ov
 
 Methods
 -------
-connect
-disconnect
-down
-up
-left
-right
-home
-getImage
-getPosition
-daynight
+* connect
+* disconnect
+* down
+* up
+* left
+* right
+* home
+* getImage
+* getPosition
+* daynight
