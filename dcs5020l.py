@@ -76,9 +76,15 @@ class dcs5020l:
         return r
 
     def getImage(self, fileName):
+        """
+        in: fileName
+        return: r - results of requests.get
+
+        note: will potentially write a file 
+        """
         r = requests.get(self.url+'/image.jpg',
-                         auth=('admin', 'thisisnotarealpassword'),
-                         stream=True)
+                         auth=(self.user, self.password),
+                         stream=True, verify=False)
         if r.status_code == 200:
             with open(fileName, 'wb') as f:
                 for chunk in r.iter_content(1024):
@@ -86,7 +92,9 @@ class dcs5020l:
         return r
 
     def getPosition(self):
-        # /ptzposition
+        """
+        return: pan position, tilt position
+        """
 
         r = requests.get(self.url+'/config/ptz_pos.cgi',
                          auth=(self.user, self.password), verify=False)
@@ -98,6 +106,9 @@ class dcs5020l:
         return pan, tilt
 
     def daynight(self, mode):
+        """
+        return r - result of requests post
+        """
         r = requests.post(self.url+'/nightmodecontrol.cgi?IRLed=' + str(mode),
                           auth=(self.user, self.password))
         return r
